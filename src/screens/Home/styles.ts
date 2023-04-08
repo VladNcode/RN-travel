@@ -10,4 +10,9 @@ export const styles = StyleSheet.create({
   view: {
     backgroundColor: 'green',
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

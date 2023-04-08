@@ -3,6 +3,10 @@ import { Text } from 'react-native';
 
 import { styles } from './styles';
 
-export const Title = () => {
-  return <Text style={styles.title}>Home</Text>;
+interface TitleProps {
+  text?: string;
+}
+
+export const Title = ({ text = 'Default text' }: TitleProps) => {
+  return <Text style={styles.title}>{text}</Text>;
 };
