@@ -1,18 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  flex: {
-    flex: 1,
+  container: {
+    padding: 32,
   },
-  safeAreaView: {
-    backgroundColor: 'teal',
+  mainTitle: {
+    fontWeight: 'normal',
   },
-  view: {
-    backgroundColor: 'green',
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+  subtitle: {
+    fontSize: 20,
+    color: '#000000',
+    marginTop: 40,
   },
 });

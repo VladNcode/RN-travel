@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SafeAreaView, View } from 'react-native';
 
 import { Title } from '../../components/Title';
-import { MyButton } from '../../components/Button';
 import { styles } from './styles';
 
-export const Home = () => {
-  const [value, setValue] = useState(0);
-
+export const Home = React.memo(() => {
   return (
-    <SafeAreaView style={[styles.safeAreaView, styles.flex]}>
-      <View style={[styles.view, styles.flex]}>
-        <Title text={value + ''} />
-        <View style={styles.buttonContainer}>
-          <MyButton setValue={setValue} />
-        </View>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <Title text="Where do" extraTextStyle={styles.mainTitle} />
+        <Title text="you want to go?" />
+        <Title text="Explore attractions" extraTextStyle={styles.subtitle} />
       </View>
     </SafeAreaView>
   );
-};
+});

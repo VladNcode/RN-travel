@@ -1,12 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, TextStyle } from 'react-native';
 
 import { styles } from './styles';
 
 interface TitleProps {
-  text?: string;
+  text: string;
+  extraTextStyle?: TextStyle;
 }
 
-export const Title = ({ text = 'Default text' }: TitleProps) => {
-  return <Text style={styles.title}>{text}</Text>;
-};
+export const Title = React.memo(({ text, extraTextStyle }: TitleProps) => {
+  return <Text style={[styles.title, extraTextStyle]}>{text}</Text>;
+});
