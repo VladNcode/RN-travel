@@ -12,4 +12,11 @@ export const styles = StyleSheet.create({
     color: '#000000',
     marginTop: 40,
   },
+  row: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  evenCardsMargin: {
+    marginRight: 12,
+  },
 });
