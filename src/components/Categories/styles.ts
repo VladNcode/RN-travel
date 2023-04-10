@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     marginTop: 34 - 16,
-    marginRight: -32,
   },
   categoryContainerWrapper: {
     paddingVertical: 16,
@@ -23,5 +22,8 @@ export const styles = StyleSheet.create({
   selectedCategoryItem: {
     color: '#000000',
     fontWeight: '600',
+  },
+  firstItem: {
+    marginLeft: 32,
   },
 });
