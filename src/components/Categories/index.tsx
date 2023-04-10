@@ -11,7 +11,7 @@ interface CategoryProps {
 }
 
 export const Categories = React.memo(({ categories, selectedCategory, changeSelectedCategory }: CategoryProps) => {
-  const renderCategoriesRow = ({ item }: ListRenderItemInfo<Category>) => {
+  const renderCategoriesRow = ({ item, index }: ListRenderItemInfo<Category>) => {
     const isSelected = selectedCategory === item;
 
     return (
@@ -20,8 +20,13 @@ export const Categories = React.memo(({ categories, selectedCategory, changeSele
           changeSelectedCategory(item);
         }}
         style={styles.categoryContainerWrapper}>
-        <View style={[styles.categoryContainer, isSelected ? styles.selectedCategoryContainer : {}]}>
-          <Text style={[styles.categoryItem, isSelected ? styles.selectedCategoryItem : {}]}>{item}</Text>
+        <View
+          style={[
+            styles.categoryContainer,
+            isSelected && styles.selectedCategoryContainer,
+            index === 0 && styles.firstItem,
+          ]}>
+          <Text style={[styles.categoryItem, isSelected && styles.selectedCategoryItem]}>{item}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -30,6 +35,7 @@ export const Categories = React.memo(({ categories, selectedCategory, changeSele
   return (
     <FlatList
       horizontal
+      keyExtractor={item => String(item)}
       showsHorizontalScrollIndicator={false}
       style={styles.container}
       data={categories}

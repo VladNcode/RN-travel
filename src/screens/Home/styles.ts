@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 32,
+    flex: 1,
   },
   mainTitle: {
     fontWeight: 'normal',
@@ -18,5 +18,12 @@ export const styles = StyleSheet.create({
   },
   evenCardsMargin: {
     marginRight: 12,
+    marginLeft: 32,
+  },
+  emptyText: {
+    textAlign: 'center',
+    marginTop: 40,
+    fontSize: 12,
+    color: 'rgba(0,0,0, 0.5)',
   },
 });

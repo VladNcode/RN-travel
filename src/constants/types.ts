@@ -1,4 +1,4 @@
-export type Category = 'All' | 'Popular' | 'Recommended' | 'Most Viewed' | 'Most Visited' | 'Historical';
+export type Category = 'All' | 'Most Visited' | 'Historical' | 'Recommended' | 'Trending' | 'Popular';
 
 export interface AttractionData {
   id: number;
