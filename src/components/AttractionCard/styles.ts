@@ -20,6 +20,7 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     marginTop: 12,
     marginLeft: 6,
+    color: '#000000',
   },
   subtitle: {
     color: 'rgba(0, 0, 0, 0.5)',

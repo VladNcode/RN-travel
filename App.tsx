@@ -1,28 +1,21 @@
 import 'react-native-gesture-handler';
 
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
 
-import { Home } from './src/screens/Home';
-import { Text, View } from 'react-native';
+import { AttractionDetails, Gallery, Home } from './src/screens';
+import { RootStackParamsList } from './src/constants/navigation.types';
 
-const Stack = createStackNavigator();
-
-function DetailsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-    </View>
-  );
-}
+const Stack = createStackNavigator<RootStackParamsList>();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="AttractionDetails" component={AttractionDetails} />
+        <Stack.Screen name="Gallery" component={Gallery} />
       </Stack.Navigator>
     </NavigationContainer>
   );
