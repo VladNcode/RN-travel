@@ -5,11 +5,12 @@ import { AttractionCard } from '../../components/AttractionCard';
 import { Categories } from '../../components/Categories';
 import { Title } from '../../components/Title';
 import { CATEGORIES_ENUM } from '../../constants/constants';
+import { HomeScreenNavigationProp } from '../../constants/navigation.types';
 import { AttractionData, Category } from '../../constants/types';
 import attractionsJson from '../../data/attractions.json';
 import { styles } from './styles';
 
-export const Home = React.memo(() => {
+export const Home = React.memo(({ navigation }: { navigation: HomeScreenNavigationProp }) => {
   const [selectedCategory, setSelectedCategory] = useState<Category>('All');
   const [attractions, setAttractions] = useState<AttractionData[]>([]);
 
@@ -52,6 +53,9 @@ export const Home = React.memo(() => {
         keyExtractor={item => String(item.id)}
         renderItem={({ item: attraction, index }) => (
           <AttractionCard
+            onPress={() => {
+              navigation.navigate('AttractionDetails', { attraction });
+            }}
             key={attraction.id}
             imageSrc={attraction.images[0]}
             title={attraction.name}
