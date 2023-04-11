@@ -1,8 +1,8 @@
 import React from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { Image, ImageBackground, Pressable, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 
+import { AttractionDetailsNavigationProp, AttractionDetailsRoute } from '../../constants/navigation.types';
 import { styles } from './styles';
-import { AttractionDetailsRoute, AttractionDetailsNavigationProp } from '../../constants/navigation.types';
 
 interface AttractionDetailsProps {
   route: AttractionDetailsRoute;
@@ -10,16 +10,32 @@ interface AttractionDetailsProps {
 }
 
 export const AttractionDetails = React.memo(({ navigation, route }: AttractionDetailsProps) => {
+  const { attraction } = route.params;
+  const mainImageUrl = attraction.images[0];
+
+  const goBack = () => {
+    navigation.goBack();
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text
-        onPress={() => {
-          navigation.goBack();
-        }}
-        style={{ margin: 32 }}>
-        Back
-      </Text>
-      <Text>{route.params.attraction.name}</Text>
+      <ImageBackground imageStyle={styles.mainImageStyle} style={styles.mainImage} source={{ uri: mainImageUrl }}>
+        <View style={styles.header}>
+          <Pressable onPress={goBack} hitSlop={8}>
+            <Image style={styles.icon} source={require('../../assets/back.png')} />
+          </Pressable>
+          <Pressable hitSlop={8}>
+            <Image style={styles.icon} source={require('../../assets/share.png')} />
+          </Pressable>
+        </View>
+
+        <View style={styles.footer}>
+          {attraction.images.map(imageUrl => {
+            return <Image key={imageUrl} source={{ uri: imageUrl }} style={styles.miniImage} />;
+          })}
+        </View>
+      </ImageBackground>
+      <Text>{attraction.name}</Text>
     </SafeAreaView>
   );
 });
