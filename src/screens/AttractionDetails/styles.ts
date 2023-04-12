@@ -35,11 +35,71 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.35)',
     marginBottom: 16,
   },
-
   miniImage: {
     width: 40,
     height: 40,
-    margin: 8,
+    marginHorizontal: 8,
+    marginVertical: 4,
     borderRadius: 10,
+  },
+  moreImages: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  moreImagesContainer: {
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 0, 0.38)',
+    width: 40,
+    height: 40,
+    top: 4,
+    left: 8,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  textContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  iconTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 12,
+    marginBottom: 23,
+  },
+  rowContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  name: {
+    color: '#000000',
+    fontSize: 32,
+    fontWeight: '700',
+    marginTop: 48,
+  },
+  city: {
+    marginTop: 16,
+    color: '#000000',
+    fontSize: 20,
+    fontWeight: '500',
+  },
+  price: {
+    color: '#000000',
+    fontSize: 32,
+    fontWeight: '700',
+    marginTop: 40,
+  },
+  textIcon: {
+    width: 42,
+    height: 42,
+    marginRight: 7,
+  },
+  text: {
+    fontSize: 9,
+    color: '#000000',
+    fontWeight: '500',
   },
 });
