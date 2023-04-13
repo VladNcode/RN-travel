@@ -4,7 +4,7 @@ const { height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   container: {
-    margin: 16,
+    paddingHorizontal: 24,
   },
   header: {
     width: '100%',
@@ -19,12 +19,13 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 24,
-  },
-  mainImageStyle: {
     borderRadius: 20,
   },
-
-  icon: {
+  backContainer: {
+    position: 'absolute',
+    left: 30,
+  },
+  backIcon: {
     width: 34,
     height: 34,
     margin: 16,

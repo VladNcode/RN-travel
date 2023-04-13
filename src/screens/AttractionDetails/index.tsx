@@ -66,10 +66,8 @@ export const AttractionDetails = React.memo(({ navigation, route }: AttractionDe
 
       <View style={styles.rowContainer}>
         <Image style={styles.textIcon} source={require('../../assets/hours.png')} />
-        <View>
-          <Text style={styles.text}>OPEN</Text>
-          <Text style={styles.text}>{attraction.opening_time}</Text>
-        </View>
+        <Text style={styles.text}>{`Open: 
+${attraction.opening_time} - ${attraction.closing_time}`}</Text>
       </View>
     </SafeAreaView>
   );
