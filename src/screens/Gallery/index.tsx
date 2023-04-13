@@ -1,18 +1,9 @@
 import React from 'react';
-import {
-  Image,
-  ImageBackground,
-  ListRenderItemInfo,
-  Pressable,
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Image, ListRenderItemInfo, SafeAreaView, TouchableOpacity, View } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 
 import { GalleryNavigationProp, GalleryRoute } from '../../constants/navigation.types';
 import { styles } from './styles';
-import { FlatList } from 'react-native-gesture-handler';
 
 interface GalleryProps {
   route: GalleryRoute;
