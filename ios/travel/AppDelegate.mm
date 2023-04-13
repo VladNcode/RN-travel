@@ -8,7 +8,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[GMSServices provideAPIKey:@"YOUR_GMAPS_API_KEY"];
+	[GMSServices provideAPIKey:@"YOUR_GOOGLE_MAPS_API_KEY"];
 
   self.moduleName = @"travel";
   // You can add your custom initial props in the dictionary below.
