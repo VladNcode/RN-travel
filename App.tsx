@@ -1,17 +1,25 @@
 import 'react-native-gesture-handler';
 
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 
-import { AttractionDetails, Gallery, Home } from './src/screens';
 import { RootStackParamsList } from './src/constants/navigation.types';
+import { AttractionDetails, Gallery, Home } from './src/screens';
 
 const Stack = createStackNavigator<RootStackParamsList>();
 
 function App() {
+  const appTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: '#ffffff',
+    },
+  };
+
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={appTheme}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="AttractionDetails" component={AttractionDetails} />

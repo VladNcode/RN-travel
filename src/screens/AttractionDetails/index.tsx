@@ -1,8 +1,9 @@
 import React from 'react';
-import { Image, ImageBackground, Pressable, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, Pressable, SafeAreaView, Text, View } from 'react-native';
 
 import { AttractionDetailsNavigationProp, AttractionDetailsRoute } from '../../constants/navigation.types';
 import { styles } from './styles';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 interface AttractionDetailsProps {
   route: AttractionDetailsRoute;
@@ -66,11 +67,23 @@ export const AttractionDetails = React.memo(({ navigation, route }: AttractionDe
 
       <View style={styles.rowContainer}>
         <Image style={styles.textIcon} source={require('../../assets/hours.png')} />
-        <View>
-          <Text style={styles.text}>OPEN</Text>
-          <Text style={styles.text}>{attraction.opening_time}</Text>
-        </View>
+        <Text style={styles.text}>{`Open: 
+${attraction.opening_time} - ${attraction.closing_time}`}</Text>
       </View>
+
+      <MapView
+        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        style={{
+          height: 100,
+          width: 100,
+        }}
+        region={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.0121,
+        }}
+      />
     </SafeAreaView>
   );
 });
