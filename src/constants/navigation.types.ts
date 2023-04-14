@@ -7,6 +7,14 @@ export type RootStackParamsList = {
   Home: undefined;
   AttractionDetails: { attraction: AttractionData };
   Gallery: { images: string[] };
+  Map: {
+    name: string;
+    city: string;
+    coords: {
+      lat: number;
+      lon: number;
+    };
+  };
 };
 
 export type HomeScreenNavigationProp = StackNavigationProp<RootStackParamsList, 'Home'>;
@@ -16,3 +24,6 @@ export type AttractionDetailsNavigationProp = StackNavigationProp<RootStackParam
 
 export type GalleryRoute = RouteProp<RootStackParamsList, 'Gallery'>;
 export type GalleryNavigationProp = StackNavigationProp<RootStackParamsList, 'Gallery'>;
+
+export type MapRoute = RouteProp<RootStackParamsList, 'Map'>;
+export type MapNavigationProp = StackNavigationProp<RootStackParamsList, 'Map'>;

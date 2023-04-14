@@ -3,6 +3,25 @@ import { StyleSheet, Dimensions } from 'react-native';
 const { height } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
+  mapContainer: {
+    width: '100%',
+    height: height / 2.5,
+    marginTop: 34,
+    borderRadius: 20,
+    backgroundColor: '#FFFFFF',
+    overflow: 'hidden',
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+  },
+  mapText: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: '#4681A3',
+    textAlign: 'center',
+    padding: 25,
+  },
   container: {
     margin: 32,
   },
@@ -63,6 +82,9 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  nameContainer: {
+    maxWidth: '70%',
   },
   iconTextContainer: {
     flexDirection: 'row',
