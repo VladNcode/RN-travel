@@ -1,10 +1,12 @@
 import React from 'react';
 import { Image, ImageBackground, Pressable, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import Share from 'react-native-share';
+import { ScrollView } from 'react-native-gesture-handler';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 import { AttractionDetailsNavigationProp, AttractionDetailsRoute } from '../../constants/navigation.types';
+import { fetchToBase64 } from '../../helpers/imageToBase64';
 import { styles } from './styles';
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
-import { ScrollView } from 'react-native-gesture-handler';
 
 interface AttractionDetailsProps {
   route: AttractionDetailsRoute;
@@ -29,6 +31,15 @@ export const AttractionDetails = React.memo(({ navigation, route }: AttractionDe
     navigation.navigate('Map', { coords: attraction.coordinates, name: attraction.name, city: attraction.city });
   };
 
+  const onShare = async () => {
+    try {
+      const base64Image = await fetchToBase64(mainImageUrl);
+      await Share.open({ message: 'test', url: base64Image });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -37,7 +48,7 @@ export const AttractionDetails = React.memo(({ navigation, route }: AttractionDe
             <Pressable onPress={goBack} hitSlop={8}>
               <Image style={styles.icon} source={require('../../assets/back.png')} />
             </Pressable>
-            <Pressable hitSlop={8}>
+            <Pressable onPress={onShare} hitSlop={8}>
               <Image style={styles.icon} source={require('../../assets/share.png')} />
             </Pressable>
           </View>
@@ -73,6 +84,7 @@ export const AttractionDetails = React.memo(({ navigation, route }: AttractionDe
 
         <View style={styles.rowContainer}>
           <Image style={styles.textIcon} source={require('../../assets/hours.png')} />
+
           <Text style={styles.text}>{`Open: 
 ${attraction.opening_time} - ${attraction.closing_time}`}</Text>
         </View>
@@ -97,7 +109,7 @@ ${attraction.opening_time} - ${attraction.closing_time}`}</Text>
           </MapView>
         </View>
         <TouchableOpacity onPress={onMapNavigate}>
-          <Text style={styles.mapText}>Show full screen map</Text>
+          <Text style={styles.mapText}>Show fullscreen map</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
